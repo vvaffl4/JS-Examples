@@ -1,0 +1,39 @@
+{
+  "name": "reversi",
+  "version": "1.0.0",
+  "description": "reversi",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "gulp",
+    "watch": "gulp watch",
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vvaffl4/JS-Examples.git"
+  },
+  "keywords": [
+    "reversi",
+    "ji",
+    "jasmine"
+  ],
+  "author": "Patrick W.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vvaffl4/JS-Examples/issues"
+  },
+  "homepage": "https://github.com/vvaffl4/JS-Examples#readme",
+  "dependencies": {
+    "browser-sync": "^2.27.10",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-uglifycss": "^1.1.0",
+    "jquery": "^3.6.1"
+  }
+}

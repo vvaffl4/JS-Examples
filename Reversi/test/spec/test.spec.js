@@ -1,4 +1,3 @@
-
 describe(("Check if module"), () => {
   it("Reversi exists", () => {
     expect(typeof Game.Reversi.init).toBe('function');
