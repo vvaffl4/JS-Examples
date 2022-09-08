@@ -42,7 +42,7 @@ class FeedbackWidget{
       .map(log => `<type ${log.type}> - ${log.message}`)
       .join('\n');
 
-    console.log(formattedLogs);
+    return formattedLogs;
   }
 }
 
@@ -55,10 +55,12 @@ class FeedbackWidget{
     error.show("Je gegevens konden niet worden opgehaald. Zo jammer. Probeer het later nog eens.", "error");
     challenge.show("Mike wil deelnemen aan jouw spel. Geef akkoord.", "success");
 
-    koffie.show(
-      'Bijna klaar, tijd voor koffie',
-      'sucess'
-    )
+    setInterval(() => {
 
-    koffie.history();
+      koffie.show(
+        'Bijna klaar, tijd voor koffie',
+        'success'
+      )
+      console.log(koffie.history());
+    }, 1000);
   } )();
