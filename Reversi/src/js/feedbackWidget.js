@@ -12,7 +12,7 @@ class FeedbackWidget{
     
   show(message, type){
     $(this._element).text(message);
-    $(this._element).addClass(type)
+    $(this._element).addClass(type);
     $(this._element).show();
 
     this.log({ message, type })
@@ -47,7 +47,7 @@ class FeedbackWidget{
 }
 
 
- (() => {
+ $(() => {
     const error = new FeedbackWidget('error');
     const challenge = new FeedbackWidget('challenge');
     const koffie = new FeedbackWidget('koffie');
@@ -55,12 +55,10 @@ class FeedbackWidget{
     error.show("Je gegevens konden niet worden opgehaald. Zo jammer. Probeer het later nog eens.", "error");
     challenge.show("Mike wil deelnemen aan jouw spel. Geef akkoord.", "success");
 
-    setInterval(() => {
+    koffie.show(
+      'Bijna klaar, tijd voor koffie',
+      'success'
+    );
 
-      koffie.show(
-        'Bijna klaar, tijd voor koffie',
-        'success'
-      )
-      console.log(koffie.history());
-    }, 1000);
-  } )();
+    console.log(koffie.history());
+  });

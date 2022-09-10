@@ -1,4 +1,5 @@
 const { series, watch, src, dest } = require('gulp');
+const { development, production } = require('gulp-environments');
 const autoPrefixer = require('gulp-autoprefixer');
 const concat = require('gulp-concat');
 const gulpSass = require('gulp-sass');
@@ -18,7 +19,7 @@ const sass = (done) => {
       .on('error', gulpSass.logError))
     .pipe(concat('min.all.css'))
     .pipe(autoPrefixer())
-    .pipe(uglifycss())
+    .pipe(production(uglifycss()))
     .pipe(dest('./dist/'));
   done();
 }
@@ -27,12 +28,12 @@ const css = (done) => {
   src(['./src/css/*.css'])
     .pipe(concat('min.all.css'))
     .pipe(autoPrefixer())
-    .pipe(uglifycss())
+    .pipe(production(uglifycss()))
     .pipe(dest('./dist/'));
   done();
 }
 
-const imgUri = './src/public/**/*.{gif,jpg,jpeg,png,svg}';
+const imgUri = './src/public/**/*';
 const img = (done) => {
   src([imgUri])
     .pipe(dest('./dist/public'));
@@ -42,7 +43,7 @@ const img = (done) => {
 const js = (done) => {
   src(['./src/js/*.js']) 
     .pipe(concat('all.min.js'))
-    .pipe(uglifyjs())
+    .pipe(production(uglifyjs({ mangle: false })))
     .pipe(dest('./dist/'));
   done();
 }
@@ -52,7 +53,7 @@ var vendorUris = ['jquery/dist/jquery.min.js'];
 const vendor = (done) => {
     src(vendorUris.map(vendor => `./node_modules/${vendor}`))
       .pipe(concat('vendor.min.js'))
-      .pipe(uglifyjs())
+      .pipe(production(uglifyjs()))
       .pipe(dest('./dist/'));
     done();
   };
