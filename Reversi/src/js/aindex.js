@@ -21,6 +21,8 @@ const Game = ((apiUrl) => {
   // Private function list
   const init = (afterInit) => {
     console.log(configMap.apiUrl);
+    Game.Data.init();
+    Game.Model.init();
 
     afterInit();
   }
@@ -31,20 +33,6 @@ const Game = ((apiUrl) => {
   }
 })(apiUrl)
 
-
-Game.Reversi = (() => {
-  const configMap = {
-
-  }
-
-  const init = () => {
-    console.log('private init Reversi');
-  }
-
-  return {
-    init
-  }
-})();
 
 Game.Data = (() => {
   const configMap = {

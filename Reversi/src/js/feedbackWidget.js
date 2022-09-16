@@ -33,7 +33,7 @@ class FeedbackWidget{
     localStorage.removeItem(this._elementId);
   }
 
-  history(){
+  history(){  
     let logs = JSON.parse(localStorage.getItem(this._elementId));
     
     if (!logs) logs = [];
