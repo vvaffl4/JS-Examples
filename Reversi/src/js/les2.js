@@ -25,25 +25,7 @@ let app = ((dag) => {
   }
 })('vrijdag');
 
-app.gameplay = (() => {
-
-  let init = () => {
-    console.log('gameplay gestart');
-  }
-
-  const doeZet = (zet) => {
-    console.log(zet);
-  }
-
-  return {
-    init,
-    doeZet
-  }
-})();
 
 
 // aplicatie modules
 console.log(app.dag);
-
-
-app.gameplay.doeZet("Dit is een zet");
