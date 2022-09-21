@@ -4,6 +4,12 @@ class FeedbackWidget{
      this._element = document.getElementById(this._elementId);
 
      $(this._element).hide()
+     $(this._element).find('.feedbackClose button')
+      .on('click', () => {
+        $(this._element).removeClass('show');
+
+        setTimeout(() => $(this._element).hide(), 1500);
+      })
    }
    
   get elementId() { //getter, set keyword voor setter methode
@@ -11,8 +17,9 @@ class FeedbackWidget{
   }
     
   show(message, type){
-    $(this._element).text(message);
+    $(this._element).find('.feedbackMessage p').text(message);
     $(this._element).addClass(type);
+    $(this._element).addClass('show');
     $(this._element).show();
 
     this.log({ message, type })
@@ -48,17 +55,17 @@ class FeedbackWidget{
 
 
  $(() => {
-    const error = new FeedbackWidget('error');
+//     const error = new FeedbackWidget('error');
     const challenge = new FeedbackWidget('challenge');
-    const koffie = new FeedbackWidget('koffie');
+//     const koffie = new FeedbackWidget('koffie');
 
-    error.show("Je gegevens konden niet worden opgehaald. Zo jammer. Probeer het later nog eens.", "error");
+//     error.show("Je gegevens konden niet worden opgehaald. Zo jammer. Probeer het later nog eens.", "error");
     challenge.show("Mike wil deelnemen aan jouw spel. Geef akkoord.", "success");
 
-    koffie.show(
-      'Bijna klaar, tijd voor koffie',
-      'success'
-    );
+//     koffie.show(
+//       'Bijna klaar, tijd voor koffie',
+//       'success'
+//     );
 
-    console.log(koffie.history());
+//     console.log(koffie.history());
   });

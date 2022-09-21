@@ -1,0 +1,84 @@
+.feedbackWidget {
+  color: darkgrey;
+  border-radius: 10px;
+  opacity: 0;
+  overflow: hidden;
+
+  transition: opacity 1s;
+}
+
+.feedbackWidget.show {
+  display: block;
+  opacity: 1;
+
+  transition: opacity 1s;
+}
+
+.feedbackWidget.success {
+  background-color: lime;
+}
+
+.feedbackWidget.error {
+  background-color: red;
+}
+
+.feedbackContainer {
+  display: flex;
+}
+
+.feedbackCheckmark {
+  flex: 0;
+  min-width: 80px;
+  height: 80px;
+  border: 1px solid black;
+}
+
+.feedbackMessage {
+  flex: 1;
+}
+
+.feedbackMessage p {
+  font-size: 14px;
+}
+
+.feedbackClose {
+  flex: 0;
+  position: relative;
+  min-width: 80px;
+  height: 80px;
+}
+
+.feedbackClose button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+}
+
+.feedbackAction {
+  display: inline-block;
+  width: 100%;
+}
+
+.feedbackAction button {
+  margin: 4px;
+  float: right;
+  width: 100px;
+}
+
+@media (max-width: 450px) {
+  .feedbackCheckmark {
+    display: none;
+  }
+
+  .feedbackMessage p {
+    font-size: 8px;
+  }
+
+  .feedbackAction button {
+    display: block;
+    float: none;
+  }
+}
